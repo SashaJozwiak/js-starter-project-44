@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { currentUserName } from '../cli';
+import { currentUserName } from '../cli.js';
 
 function evenGame() {
 
@@ -25,8 +25,8 @@ function evenGame() {
   for (let i = 0; i < movies; i++) {
     checkAnswer()
   }
-
-  console.log(`Congratulations, ${currentUserName}!`)
+  const { name } = currentUserName
+  console.log(`Congratulations, ${name}!`)
 
 }
 
