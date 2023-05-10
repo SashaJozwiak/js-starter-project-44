@@ -7,32 +7,30 @@ function evenGame() {
 
   let movies = 2;
 
-  checkAnswer()
+  // eslint-disable-next-line no-use-before-define
+  checkAnswer();
 
   function checkAnswer() {
-    const randomNum = Math.floor(Math.random() * 100)
-    const correctAnswer = () => randomNum % 2 === 0 ? 'yes' : 'no';
-    console.log(`Question: ${randomNum}`)
+    const randomNum = Math.floor(Math.random() * 100);
+    const correctAnswer = () => (randomNum % 2 === 0 ? 'yes' : 'no');
+    console.log(`Question: ${randomNum}`);
     const answer = readlineSync.question('Your answer: ');
     if (correctAnswer() === answer) {
-      console.log('Correct!')
+      console.log('Correct!');
     } else {
-      console.log('Incorrect!')
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer()}'.`)
-      console.log(`Let's try again, ${name}!`)
+      console.log('Incorrect!');
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer()}'.`);
+      console.log(`Let's try again, ${name}!`);
       movies = -1;
-      return;
     }
   }
 
-  for (let i = 0; i < movies; i++) {
-    checkAnswer()
+  for (let i = 0; i < movies; i += 1) {
+    checkAnswer();
   }
-
-  if (movies != -1) {
-    console.log(`Congratulations, ${name}!`)
+  if (movies !== -1) {
+    console.log(`Congratulations, ${name}!`);
   }
-
 }
 
 export default evenGame;

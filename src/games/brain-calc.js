@@ -5,51 +5,50 @@ function calcGame() {
   const { name } = currentUserName;
   let movies = 2;
 
-  checkAnswer()
+  // eslint-disable-next-line no-use-before-define
+  checkAnswer();
 
   function checkAnswer() {
-
     const operators = ['+', '-', '*'];
-    let randomOperator = operators[Math.floor(Math.random() * 3)]
-    let firstOperand = Math.floor(Math.random() * 10)
-    let secondOperand = Math.floor(Math.random() * 10)
+    const randomOperator = operators[Math.floor(Math.random() * 3)];
+    const firstOperand = Math.floor(Math.random() * 10);
+    const secondOperand = Math.floor(Math.random() * 10);
 
-    let expression = `${firstOperand} ${randomOperator} ${secondOperand}`
+    const expression = `${firstOperand} ${randomOperator} ${secondOperand}`;
 
-    let answerExpression = () => {
+    // eslint-disable-next-line consistent-return
+    const answerExpression = () => {
+      // eslint-disable-next-line default-case
       switch (randomOperator) {
         case '+':
-          return firstOperand + secondOperand
+          return firstOperand + secondOperand;
         case '-':
-          return firstOperand - secondOperand
+          return firstOperand - secondOperand;
         case '*':
-          return firstOperand * secondOperand
+          return firstOperand * secondOperand;
       }
-    }
+    };
 
-
-    console.log('What is the result of the expression?')
-    console.log(`Question: ${expression}`)
+    console.log('What is the result of the expression?');
+    console.log(`Question: ${expression}`);
     const answer = readlineSync.question('Your answer: ');
 
     if (+answer === answerExpression()) {
-      console.log('Correct!')
+      console.log('Correct!');
     } else {
-      //console.log('Incorrect!', answer, answerExpression())
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerExpression()}'.`)
-      console.log(`Let's try again, ${name}!`)
+      // console.log('Incorrect!', answer, answerExpression())
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerExpression()}'.`);
+      console.log(`Let's try again, ${name}!`);
       movies = -1;
-      return;
     }
-
   }
 
-  for (let i = 0; i < movies; i++) {
-    checkAnswer()
+  for (let i = 0; i < movies; i += 1) {
+    checkAnswer();
   }
 
-  if (movies != -1) {
-    console.log(`Congratulations, ${name}!`)
+  if (movies !== -1) {
+    console.log(`Congratulations, ${name}!`);
   }
 }
 
