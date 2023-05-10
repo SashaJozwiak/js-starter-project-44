@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { currentUserName } from '../cli.js';
 
 function evenGame() {
-  const { name } = currentUserName
+  const { name } = currentUserName;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let movies = 2;

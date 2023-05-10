@@ -1,7 +1,8 @@
 import readlineSync from 'readline-sync';
+import { currentUserName } from '../cli.js';
 
 function calcGame() {
-
+  const { name } = currentUserName;
   let movies = 2;
 
   checkAnswer()
@@ -29,16 +30,16 @@ function calcGame() {
 
     console.log('What is the result of the expression?')
     console.log(`Question: ${expression}`)
-    console.log()
     const answer = readlineSync.question('Your answer: ');
 
     if (+answer === answerExpression()) {
-      console.log('Correct!', answer, answerExpression())
+      console.log('Correct!')
     } else {
       console.log('Incorrect!', answer, answerExpression())
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerExpression()}'.`)
+      movies = -1;
+      return;
     }
-
-
 
   }
 
@@ -46,7 +47,9 @@ function calcGame() {
     checkAnswer()
   }
 
-  console.log(`Congratulations!`)
+  if (movies != -1) {
+    console.log(`Congratulations, ${name}!`)
+  }
 }
 
 export default calcGame;
