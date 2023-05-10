@@ -1,11 +1,8 @@
 import readlineSync from 'readline-sync'
 
 function progressionGame() {
-
   console.log('What number is missing in the progression?');
-
   let movies = 2;
-
   checkAnswer()
 
   function checkAnswer() {
@@ -31,15 +28,12 @@ function progressionGame() {
     } else {
       console.log('Incorrect! Correct answer: ' + correctAnswer)
     }
-
   }
 
   for (let i = 0; i < movies; i++) {
     checkAnswer()
   }
-
   console.log(`Congratulations!`)
-
 }
 
 export default progressionGame;

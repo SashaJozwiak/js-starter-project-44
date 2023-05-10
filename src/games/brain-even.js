@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { currentUserName } from '../cli';
 
 function evenGame() {
 
@@ -25,7 +26,7 @@ function evenGame() {
     checkAnswer()
   }
 
-  console.log(`Congratulations!`)
+  console.log(`Congratulations, ${currentUserName}!`)
 
 }
 
