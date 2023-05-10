@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { currentUserName } from '../cli.js';
 
 function evenGame() {
-
+  const { name } = currentUserName
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let movies = 2;
@@ -18,15 +18,20 @@ function evenGame() {
       console.log('Correct!')
     } else {
       console.log('Incorrect!')
-      movies = 0;
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer()}'.`)
+      console.log(`Let's try again, ${name}!`)
+      movies = -1;
+      return;
     }
   }
 
   for (let i = 0; i < movies; i++) {
     checkAnswer()
   }
-  const { name } = currentUserName
-  console.log(`Congratulations, ${name}!`)
+
+  if (movies != -1) {
+    console.log(`Congratulations, ${name}!`)
+  }
 
 }
 
