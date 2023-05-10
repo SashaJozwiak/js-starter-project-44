@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import primeGame from '../src/games/brain-prime.js';
+// eslint-disable-next-line no-unused-vars
 import { brainGames } from './brain-games.js';
+import primeGame from '../src/games/brain-prime.js';
 
 primeGame();
