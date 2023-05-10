@@ -35,7 +35,7 @@ function progressionGame() {
   for (let i = 0; i < movies; i++) {
     checkAnswer()
   }
-  console.log(`Congratulations!`)
+  console.log(`Congratulations, ${user}!`)
 }
 
 export default progressionGame;
