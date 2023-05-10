@@ -35,8 +35,9 @@ function calcGame() {
     if (+answer === answerExpression()) {
       console.log('Correct!')
     } else {
-      console.log('Incorrect!', answer, answerExpression())
+      //console.log('Incorrect!', answer, answerExpression())
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerExpression()}'.`)
+      console.log(`Let's try again, ${name}!`)
       movies = -1;
       return;
     }

@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync'
+import { currentUserName } from '../cli.js';
 
 function progressionGame() {
+  const { user } = currentUserName;
   console.log('What number is missing in the progression?');
   let movies = 2;
   checkAnswer()

@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
-
+import { currentUserName } from '../cli.js';
 
 function gcdGame() {
-
+  const { name } = currentUserName;
   let movies = 2;
 
   checkAnswer()
@@ -28,6 +28,9 @@ function gcdGame() {
       console.log('Correct!')
     } else {
       console.log('Incorrect!')
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${getGcd(firstOperand, secondOperand)}'.`)
+      console.log(`Let's try again, ${name}!`)
+      movies = -1
     }
   }
 
@@ -35,7 +38,9 @@ function gcdGame() {
     checkAnswer()
   }
 
-  console.log(`Congratulations!`)
+  if (movies != -1) {
+    console.log(`Congratulations, ${name}!`)
+  }
 
 }
 
