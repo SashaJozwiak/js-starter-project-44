@@ -2,7 +2,8 @@ import readlineSync from 'readline-sync'
 import { currentUserName } from '../cli.js';
 
 function progressionGame() {
-  const { user } = currentUserName;
+  const { name } = currentUserName;
+
   console.log('What number is missing in the progression?');
   let movies = 2;
   checkAnswer()
@@ -28,14 +29,19 @@ function progressionGame() {
     if (+answer === correctAnswer) {
       console.log('Correct!')
     } else {
-      console.log('Incorrect! Correct answer: ' + correctAnswer)
+      //console.log('Incorrect! Correct answer: ' + correctAnswer)
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+      console.log(`Let's try again, ${name}!`)
+      movies = -1;
     }
   }
 
   for (let i = 0; i < movies; i++) {
     checkAnswer()
   }
-  console.log(`Congratulations, ${user}!`)
+  if (movies != -1) {
+    console.log(`Congratulations, ${name}!`)
+  }
 }
 
 export default progressionGame;

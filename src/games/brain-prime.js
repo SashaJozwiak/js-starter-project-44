@@ -1,7 +1,9 @@
-import readlineSync from 'readline-sync'
+import readlineSync from 'readline-sync';
+import { currentUserName } from '../cli.js';
 
 function primeGame() {
 
+  const { name } = currentUserName;
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
 
   let movies = 2;
@@ -26,12 +28,22 @@ function primeGame() {
 
     if (isPrime(randomNum)) {
       correctAnswer = 'yes';
-      answer === correctAnswer ? console.log('Correct!')
-        : console.log('Incorrect!')
+      if (answer === correctAnswer) {
+        console.log('Correct!')
+      } else {
+        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+        console.log(`Let's try again, ${name}!`)
+        movies = -1;
+      }
     } else {
       correctAnswer = 'no';
-      answer === correctAnswer ? console.log('Correct!')
-        : console.log('Incorrect!')
+      if (answer === correctAnswer) {
+        console.log('Correct!')
+      } else {
+        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+        console.log(`Let's try again, ${name}!`)
+        movies = -1;
+      }
     }
   }
 
@@ -39,7 +51,9 @@ function primeGame() {
     checkAnswer()
   }
 
-  console.log(`Congratulations!`)
+  if (movies != -1) {
+    console.log(`Congratulations, ${name}!`)
+  }
 
 }
 
